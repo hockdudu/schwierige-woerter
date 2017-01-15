@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="wordlist">
+        <item>abendlich;abendlich.ogg</item>
+        <item>eigentlich;eigentlich.ogg</item>
+        <item>er lädt ein;er lädt ein.ogg</item>
+        <item>die Ferse;Ferse.ogg</item>
+        <item>die Gaststätte;Gaststätte.ogg</item>
+        <item>Kaffee trinken;Kaffee trinken.ogg</item>
+        <item>kraxeln;kraxeln.ogg</item>
+        <item>der Kuckuck;Kuckuck.ogg</item>
+        <item>die Nähte;Nähte.ogg</item>
+        <item>namentlich;namentlich.ogg</item>
+        <item>der Nassschnee;Nassschnee.ogg</item>
+        <item>die Perücke;Perücke.ogg</item>
+        <item>die Saiten;Saiten (Gitarre).ogg</item>
+        <item>schäkern;schäkern.ogg</item>
+        <item>ein Schaukelstühl;Schaukelstühl.ogg</item>
+        <item>das Schiffswrack;Schiffswrack.ogg</item>
+        <item>der Stadtbezirk;Stadtbezirk.ogg</item>
+        <item>verknackst;verknackst.ogg</item>
+        <item>die Verse;Verse.ogg</item>
+        <item>Vogelflug;Vogelflug.ogg</item>
+        <item>völlig falsch;völlig falsch.ogg</item>
+
+    </array>
+
+
+</resources>

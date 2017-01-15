@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="key.darkTheme">pref_key_darkTheme</string>
+    <string name="key.smallScreen">pref_key_smallScreen</string>
+</resources>

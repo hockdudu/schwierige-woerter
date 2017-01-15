@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Schwierige Wörter</string>
+    <string name="play_audio">Audio hören</string>
+    <string name="next_word">Nächste Wort</string>
+    <string name="send">Senden</string>
+    <string name="type_here">Hier schreiben</string>
+    <string name="settings">Einstellungen</string>
+
+    <string name="conf_darkTheme_title">Dunkel Theme benutzen</string><!--https://de.wikipedia.org/wiki/Skin_(Computer)-->
+    <string name="conf_darkTheme_summary">Um Ihre Augen zu schützen</string>
+    <string name="conf_smallScreen_title">Klein Bildschirm Modus verwenden</string>
+    <string name="conf_smallScreen_summary">Falls Ihre Tastatur die richtige Lösung bedeckt</string>
+    <string name="OK">OK</string>
+</resources>

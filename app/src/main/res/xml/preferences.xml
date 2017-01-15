@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory
+        android:title="Style">
+        <SwitchPreference
+            android:key="@string/key.darkTheme"
+            android:title="@string/conf_darkTheme_title"
+            android:summary="@string/conf_darkTheme_summary"
+            android:defaultValue="false"/>
+
+        <SwitchPreference
+            android:key="@string/key.smallScreen"
+            android:title="@string/conf_smallScreen_title"
+            android:summary="@string/conf_smallScreen_summary"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+
+</PreferenceScreen>

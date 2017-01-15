@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color> <!--Indigo 500-->
+    <color name="colorPrimaryDark">#303f9f</color><!--Indigo 700-->
+    <color name="colorAccent">#c51162</color><!--Pink A200-->
+
+    <color name="textRight">#FF00DD00</color>
+    <color name="textWrong">#FFFF0000</color>
+</resources>

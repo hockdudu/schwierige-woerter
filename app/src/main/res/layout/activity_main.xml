@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
+
+
+    <RelativeLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="ch.hockdudu.schwierigewoerter.MainActivity">
+
+
+
+
+
+        <Button
+            android:id="@+id/button_play_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/play_audio"
+            android:onClick="playAudio" />
+
+        <Button
+            android:id="@+id/button_next_word"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/next_word"
+            android:layout_alignParentRight="true"
+            android:onClick="nextWord" />
+
+        <EditText
+            android:id="@+id/text_type_here"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/type_here"
+            android:inputType="text|textNoSuggestions"
+            android:imeOptions="actionSend"
+            android:layout_below="@id/button_play_audio"
+            android:layout_toLeftOf="@+id/button_send"
+            android:layout_marginTop="50dp" />
+
+        <Button
+            android:id="@+id/button_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/send"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@id/text_type_here"
+            android:onClick="analyseMessage" />
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/text_type_here"
+            android:paddingTop="40dp" />
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/text1"
+            android:paddingTop="25dp" />
+
+        <TextView
+            android:id="@+id/text3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/button_play_audio"
+            android:layout_marginTop="15dp"/>
+
+
+    </RelativeLayout>
+</LinearLayout>
