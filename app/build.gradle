@@ -6,7 +6,7 @@ android {
     defaultConfig {
         applicationId "ch.hockdudu.schwierigewoerter"
         minSdkVersion 15
-        targetSdkVersion 24
+        targetSdkVersion 24 // TODO: 16/01/17 Use the lastest SDK (25)
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
     protected void onResume() {
         super.onResume();
         if (utils.darkMode.get(this) != utils.darkMode.holder) {
-            recreate();
+            recreate(); // TODO: 16/01/17 If user changes the theme, the previous audio won't be saved
             ((EditText) findViewById(R.id.text_type_here)).setText("");
         }
     }
@@ -250,7 +250,8 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
     }
 
     @Override
-    public void onCompletion(MediaPlayer s) {
+    public void onCompletion(MediaPlayer s) {   // TODO: 16/01/17 Fix bug; somewhy this doesn't get called if user clicks the button repeatedly
+                                                // TODO: 16/01/17 ^^ It didn't work on VM; maybe it was device specific?^^
         s.release();
         Log.v(this.getClass().getSimpleName(), "doPlayAudio: Audio released");
         isAudioPlaying=false;
