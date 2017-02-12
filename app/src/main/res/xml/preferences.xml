@@ -4,13 +4,13 @@
 
     <PreferenceCategory
         android:title="Style">
-        <SwitchPreference
+        <ch.hockdudu.schwierigewoerter.switchFix
             android:key="@string/key.darkTheme"
             android:title="@string/conf_darkTheme_title"
             android:summary="@string/conf_darkTheme_summary"
             android:defaultValue="false"/>
 
-        <SwitchPreference
+        <ch.hockdudu.schwierigewoerter.switchFix
             android:key="@string/key.smallScreen"
             android:title="@string/conf_smallScreen_title"
             android:summary="@string/conf_smallScreen_summary"

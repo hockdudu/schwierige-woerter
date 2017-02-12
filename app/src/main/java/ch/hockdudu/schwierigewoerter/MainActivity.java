@@ -2,9 +2,11 @@ package ch.hockdudu.schwierigewoerter;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.AssetFileDescriptor;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.preference.PreferenceManager;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,11 +22,10 @@ import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
 
-public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener {
+public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCompletionListener, SharedPreferences.OnSharedPreferenceChangeListener {
 
     // Initializes the ones who need to be initialized
     private utils.random random;
-    //public String[] history = new String[10];
     private boolean isAudioPlaying = false;
 
     @Override
@@ -39,38 +40,21 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //random = new getRnd();
-        //random = new utils().new random(this);
         random = new  utils.random(this);
 
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
         onSend();
         confToolbar();
+        
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        pref.registerOnSharedPreferenceChangeListener(this);
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-        Log.v(this.getClass().getSimpleName(), "onResume: Resumed");
-
-        if ((utils.smallScreenMode.get(this) != utils.smallScreenMode.holder) && (
-                ((TextView) findViewById(R.id.text1)).getText().toString().isEmpty() ^
-                        ((TextView) findViewById(R.id.text3)).getText().toString().isEmpty())) {
-
-            Log.v(this.getClass().getSimpleName(), "onResume: Small screen mode changed");
-
-            utils.smallScreenMode.holder = utils.smallScreenMode.get(this);
-            analyseMessage(findViewById(R.id.text_type_here));
-
-        }
-
-        if (utils.darkMode.get(this) != utils.darkMode.holder) {
-            Log.v(this.getClass().getSimpleName(), "onResume: Theme changed");
-            recreate();
-            //((EditText) findViewById(R.id.text_type_here)).setText("");
-        }
-
-
+    protected void onDestroy() {
+        super.onDestroy();
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        pref.unregisterOnSharedPreferenceChangeListener(this);
     }
 
 
@@ -179,6 +163,22 @@ public class MainActivity extends AppCompatActivity implements MediaPlayer.OnCom
         setSupportActionBar(toolbar);
     }
 
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.equals(getResources().getString(R.string.key_darkTheme))) {
+            Log.v(this.getClass().getSimpleName(), "onSharedPreferenceChanged: DarkTheme Listener");
+            recreate();
+        }
+        if (key.equals(getResources().getString(R.string.key_smallScreen))) {
+            Log.v(this.getClass().getSimpleName(), "onSharedPreferenceChanged: SmallScreen Listener");
+            if (((TextView) findViewById(R.id.text1)).getText().toString().isEmpty() ^
+                    ((TextView) findViewById(R.id.text3)).getText().toString().isEmpty()) {
+                analyseMessage(findViewById(R.id.text_type_here));
+            }
+        }
+
+    }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {

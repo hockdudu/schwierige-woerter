@@ -1,12 +1,16 @@
 package ch.hockdudu.schwierigewoerter;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends AppCompatActivity implements SharedPreferences.OnSharedPreferenceChangeListener {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -24,6 +28,21 @@ public class SettingsActivity extends AppCompatActivity {
         confToolbar();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        pref.registerOnSharedPreferenceChangeListener(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        pref.unregisterOnSharedPreferenceChangeListener(this);
+    }
+
+
     private void confToolbar() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar); // Attaching the layout to the toolbar object
         setSupportActionBar(toolbar);
@@ -40,6 +59,15 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
+
+    @Override
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.equals(getResources().getString(R.string.key_darkTheme))) {
+            Log.v(this.getClass().getSimpleName(), "onSharedPreferenceChanged: DarkTheme Listener");
+            recreate();
+        }
+
+    }
 
 }
 
