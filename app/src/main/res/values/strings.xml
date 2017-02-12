@@ -10,5 +10,4 @@
     <string name="conf_darkTheme_summary">Um Ihre Augen zu schützen</string>
     <string name="conf_smallScreen_title">Klein Bildschirm Modus verwenden</string>
     <string name="conf_smallScreen_summary">Falls Ihre Tastatur die richtige Lösung bedeckt</string>
-    <string name="OK">OK</string>
 </resources>
